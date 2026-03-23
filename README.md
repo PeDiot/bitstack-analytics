@@ -11,31 +11,35 @@ To understand the calculations in the `bitstack.analytics` table, let us define 
 * $q_t$: The quantity of Bitcoin (in Satoshis) purchased during week $t$.
 * $p_t$: The market price of Bitcoin (EUR/BTC) at the time of transaction $t$.
 
----
-
-### 1. Total Investment ($I_{total}$)
+#### Total Investment
 The cumulative amount of capital injected into the portfolio.
-$$I_{total} = \sum_{t=1}^{T} i_t$$
 
-### 2. Total Quantity ($Q_{total}$)
+$$I_{\text{total}} = \sum_{t=1}^{T} i_t$$
+
+#### Total Quantity
 The total volume of Bitcoin accumulated, including rewards/gifts where $i_t = 0$.
-$$Q_{total} = \sum_{t=1}^{T} q_t$$
 
-### 3. Current Price ($P_{current}$)
+$$Q_{\text{total}} = \sum_{t=1}^{T} q_t$$
+
+#### Current Price
 The market value of Bitcoin at the most recent entry in the dataset.
-$$P_{current} = p_T$$
 
-### 4. Average Price / Break-even ($PRU$)
+$$P_{\text{current}} = p_T$$
+
+#### Average Price
 The volume-weighted average cost of the portfolio. This represents the price at which the portfolio enters profit.
-$$PRU = \frac{\sum_{t=1}^{T} i_t}{\sum_{t=1}^{T} q_t} = \frac{I_{total}}{Q_{total}}$$
 
-### 5. Total Value ($V_{total}$)
+$$P_RU = \frac{\sum_{t=1}^{T} i_t}{\sum_{t=1}^{T} q_t} = \frac{I_{\text{total}}}{Q_{\text{total}}}$$
+
+#### Total Value
 The current fiat value of the entire Bitcoin balance.
-$$V_{total} = Q_{total} \times P_{current}$$
 
-### 6. Cumulative Performance ($Perf_{cum}$)
+$$V_{\text{total}} = Q_{\text{total}} \times P_{\text{current}}$$
+
+#### Cumulative Performance
 The percentage of gain or loss relative to the total invested capital.
-$$Perf_{cum} = \frac{V_{total} - I_{total}}{I_{total}} = \frac{P_{current} - PRU}{PRU}$$
+
+$$r = \frac{V_{\text{total}} - I_{\text{total}}}{I_{\text{total}}} = \frac{P_{\text{current}} - P_{\text{average}}}{P_{\text{average}}}$$
 
 ## Technical Stack
 * **Storage:** Google BigQuery (`Bronze` and `Gold` layers).

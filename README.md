@@ -27,7 +27,7 @@ The market value of Bitcoin at the most recent entry in the dataset.
 $$P_{\text{current}} = p_T$$
 
 #### Average Price
-The volume-weighted average cost of the portfolio. This represents the price at which the portfolio enters profit.
+The volume-weighted average cost of the portfolio. This is a proxy for the price at which the portfolio was purchased. It takes the different purchase entries into account.
 
 $$P_RU = \frac{\sum_{t=1}^{T} i_t}{\sum_{t=1}^{T} q_t} = \frac{I_{\text{total}}}{Q_{\text{total}}}$$
 
@@ -37,9 +37,9 @@ The current fiat value of the entire Bitcoin balance.
 $$V_{\text{total}} = Q_{\text{total}} \times P_{\text{current}}$$
 
 #### Cumulative Performance
-The percentage of gain or loss relative to the total invested capital.
+The percentage of gain or loss relative based on average purchase price and current price
 
-$$r = \frac{V_{\text{total}} - I_{\text{total}}}{I_{\text{total}}} = \frac{P_{\text{current}} - P_{\text{average}}}{P_{\text{average}}}$$
+$$r = \frac{P_{\text{current}} - P_{\text{average}}}{P_{\text{average}}}$$
 
 ## Technical Stack
 * **Storage:** Google BigQuery (`Bronze` and `Gold` layers).

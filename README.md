@@ -29,7 +29,7 @@ $$P_{\text{current}} = p_T$$
 #### Average Price
 The volume-weighted average cost of the portfolio. This is a proxy for the price at which the portfolio was purchased. It takes the different purchase entries into account.
 
-$$P_RU = \frac{\sum_{t=1}^{T} i_t}{\sum_{t=1}^{T} q_t} = \frac{I_{\text{total}}}{Q_{\text{total}}}$$
+$$P_{\text{average}} = \frac{\sum_{t=1}^{T} i_t}{\sum_{t=1}^{T} q_t} = \frac{I_{\text{total}}}{Q_{\text{total}}}$$
 
 #### Total Value
 The current fiat value of the entire Bitcoin balance.

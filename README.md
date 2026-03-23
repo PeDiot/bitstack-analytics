@@ -42,7 +42,6 @@ The percentage of gain or loss relative based on average purchase price and curr
 $$r = \frac{P_{\text{current}} - P_{\text{average}}}{P_{\text{average}}}$$
 
 ## Technical Stack
-* **Storage:** Google BigQuery (`Bronze` and `Gold` layers).
-* **Transformation:** dbt (Data Build Tool) Cloud.
-* **Orchestration:** Medallion Architecture (Raw $\rightarrow$ Analytics).
-* **Visualization:** Looker.
+* **Storage:** Google BigQuery
+* **Transformation:** dbt Cloud
+* **Visualization:** Looker

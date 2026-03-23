@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: bitstack
+    description: "Manual extracts from the Bitstack app (BTC DCA & Rewards)"
+    database: recove-450509
+    schema: bitstack
+    
+    config:
+      freshness:
+        warn_after: {count: 8, period: day}
+        error_after: {count: 15, period: day}
+      loaded_at_field: date
+
+    tables:
+      - name: raw
+        description: "Raw transactions table"
+        columns:
+          - name: date
+            tests:
+              - not_null
+          - name: quantity_sats
+            tests:
+              - not_null

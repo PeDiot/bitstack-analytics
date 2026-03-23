@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: analytics
+    description: "Final Gold table for Bitstack portfolio performance."
+    columns:
+      - name: investment_eur
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+      - name: quantity_sats
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+      - name: average_price
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+      - name: total_value
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0

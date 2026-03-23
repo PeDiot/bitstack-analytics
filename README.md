@@ -44,4 +44,4 @@ $$r = \frac{P_{\text{current}} - P_{\text{average}}}{P_{\text{average}}}$$
 ## Technical Stack
 * **Storage:** Google BigQuery
 * **Transformation:** dbt Cloud
-* **Visualization:** Looker
+* **Visualization:** Looker dashboard available [here](https://lookerstudio.google.com/reporting/44f9a65f-4712-4fb7-bdf6-a6cafb05f90e)

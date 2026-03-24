@@ -2,30 +2,65 @@ version: 2
 
 models:
   - name: analytics
-    description: "Final Gold table for Bitstack portfolio performance."
+    description: "Analytical table consolidating Bitstack portfolio investments, valuation, and performance over time."
     columns:
+      - name: date
+        description: "Date of the transaction or data record."
+        
       - name: investment_eur
+        description: "Amount invested on this specific date, converted from cents to euros."
         tests:
           - not_null
           - dbt_utils.accepted_range:
               arguments:
                 min_value: 0
-
+        
       - name: quantity_sats
+        description: "Quantity of Bitcoin fractions (Satoshis) acquired on this specific date."
         tests:
           - not_null
           - dbt_utils.accepted_range:
               arguments:
                 min_value: 0
-
-      - name: average_price
+        
+      - name: total_investment
+        description: "Total cumulative amount invested in euros from the very first transaction up to this date."
         tests:
+          - not_null
           - dbt_utils.accepted_range:
               arguments:
                 min_value: 0
-
+        
+      - name: total_quantity
+        description: "Total cumulative portfolio balance in Satoshis on this date."
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+        
       - name: total_value
+        description: "Total portfolio valuation in euros on this date, calculated by multiplying the total balance by the current daily market price."
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+        
+      - name: current_price
+        description: "Current market price of one full Bitcoin in euros on this specific date."
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+        
+      - name: average_price
+        description: "Average purchase price (Average Cost Basis) of one Bitcoin in euros. This represents the DCA average price since the beginning of the investment."
         tests:
           - dbt_utils.accepted_range:
               arguments:
                 min_value: 0
+        
+      - name: cumulative_performance
+        description: "Overall Return on Investment (ROI) on this date, expressed as a decimal. Calculated as the difference between the current price and the average purchase price."

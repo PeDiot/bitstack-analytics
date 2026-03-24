@@ -17,8 +17,17 @@ sources:
         description: "Raw transactions table"
         columns:
           - name: date
+            description: "The date when the transaction occurred or the data was recorded."
             tests:
               - not_null
+              
+          - name: investment_cts
+            description: "The amount invested on this specific date, expressed in fiat cents."
+            
           - name: quantity_sats
+            description: "The amount of Bitcoin fractions (Satoshis) acquired or accumulated in this transaction."
             tests:
               - not_null
+              
+          - name: price_cts
+            description: "The market price of one full Bitcoin in fiat cents on this specific date."

@@ -23,7 +23,7 @@ models:
               arguments:
                 min_value: 0
         
-      - name: total_investment
+      - name: total_investment_eur
         description: "Total cumulative amount invested in euros from the very first transaction up to this date."
         tests:
           - not_null
@@ -31,7 +31,7 @@ models:
               arguments:
                 min_value: 0
         
-      - name: total_quantity
+      - name: total_quantity_sats
         description: "Total cumulative portfolio balance in Satoshis on this date."
         tests:
           - not_null
